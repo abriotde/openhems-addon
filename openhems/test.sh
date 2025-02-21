@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# docker build -t openhems-addon:main .
 
 docker run \
   --rm \
