@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:15.0.9
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -13,24 +13,18 @@ COPY requirements.txt /tmp/
 
 # Setup base
 # hadolint ignore=DL3003,DL3042
-RUN \
-    apk add --no-cache --virtual .build-dependencies \
-        build-base=0.5-r3 \
-        python3-dev=3.11.11-r0 \
-    \
-    && apk add --no-cache \
+RUN apk upgrade --no-cache
+RUN apk add --no-cache --virtual .build-dependencies python3-dev=3.11.11-r0
+RUN apk add --no-cache \
         py3-pip=23.3.1-r0 \
         py3-wheel=0.42.0-r0 \
-        python3=3.11.11-r0 \
-    \
-    && pip install -r /tmp/requirements.txt \
-    \
-    && find /usr \
+        python3=3.11.11-r0
+RUN pip install -r /tmp/requirements.txt
+RUN find /usr \
         \( -type d -a -name test -o -name tests -o -name '__pycache__' \) \
         -o \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
-        -exec rm -rf '{}' + \
-    \
-    && apk del --no-cache --purge .build-dependencies
+        -exec rm -rf '{}' +
+RUN apk del --no-cache --purge .build-dependencies
 
 # Copy root filesystem
 COPY rootfs /

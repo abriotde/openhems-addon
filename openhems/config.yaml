@@ -1,7 +1,8 @@
 name: OpenHEMS
 description: "Home Energy Management System for Home-Assistant automation and optimization"
-url: https://github.com/abriotde/openhems-sample
-version: "0.1.8" #set OpenHEMS version
+url: https://github.com/abriotde/openhems-addon
+version: "0.1.14" #set OpenHEMS version
+codenotary: contact@openhomesystem.com
 homeassistant: "2024.5.0"
 slug: openhems
 arch:
