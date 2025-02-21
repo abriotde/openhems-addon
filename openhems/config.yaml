@@ -1,0 +1,42 @@
+name: OpenHEMS
+description: "Home Energy Management System for Home-Assistant automation and optimization"
+url: https://github.com/abriotde/openhems-sample
+version: "0.1.8" #set OpenHEMS version
+homeassistant: "2024.5.0"
+slug: openhems
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+image: "ghcr.io/abriotde/openhems-sample:main" #set if use image container repository
+ports_description:
+  8000/tcp: Web interface and API
+webui: http://[HOST]:[PORT:8000]
+init: false
+hassio_role: default
+homeassistant_api: true
+uart: true
+ports:
+  8000/tcp: 5050
+ports_description:
+  8000/tcp: OpenHEMS
+map:
+  - addon_config:rw
+  - homeassistant_config:rw
+  - media:rw
+  - share:rw
+  - ssl
+panel_icon: mdi:home-lightning-bolt-outline
+panel_title: OpenHEMS
+options:
+  ha_url: "http://supervisor/core/api"  # Auto-populate HA internal URL
+  ha_token: "!secret openhems_token"    # Auto-inject token via Supervisor # SUPERVISOR_TOKEN
+schema:
+  ha_url: str
+  ha_token: password
+  time_zone: "match((\\w+)?(\\/)(\\w+))?" #optional
+  Latitude: "float?" #optional
+  Longitude: "float?" #optional
+  Altitude: "float?" #optional
+  server_ip: "list(0.0.0.0|127.0.0.1)?" #optional

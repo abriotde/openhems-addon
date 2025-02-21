@@ -1,0 +1,15 @@
+https://github.com/hassio-addons/addon-appdaemon/tree/main
+https://github.com/hassio-addons/addon-node-red
+
+https://developers.home-assistant.io/docs/add-ons/publishing/
+- HTTPS Enforcement: If exposing OpenHEMS externally, use the nginx-proxy add-on to enforce HTTPS (see [webpage 10] for SSL setup).
+
+Testing and Debugging
+
+    Local Testing:
+
+        Copy the add-on folder to config/addons/openhems in HA.
+
+        Restart HA and install via Settings > Add-ons > Add-on Store 9.
+
+    Logs: Monitor /addon_logs/openhems.log for errors like WebSocket connectivity issues (common in Docker networks) 2.

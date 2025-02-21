@@ -169,3 +169,14 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# ---> Python
+# Maybe usefull for further developpements
+custom_components/*
+# Byte-compiled / optimized / DLL files
+openhems/__pycache__/
+openhems/.devcontainer.json
+openhems/.vscode/*
+openhems/dist/*
+*.py[cod]
+*$py.class
