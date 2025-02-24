@@ -1,7 +1,8 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest
+ARG BUILD_FROM=ghcr.io/home-assistant/base:latest
 FROM ${BUILD_FROM}
 
-RUN apk add --no-cache python3 py3-pip
+RUN apk add --no-cache python3 py3-pip \
+    && pip3 install --no-cache-dir --upgrade pip
 COPY requirements.txt /
 RUN pip3 install -r /requirements.txt
 
