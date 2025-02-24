@@ -6,7 +6,7 @@ homeassistant: "2024.5.0"
 slug: openhems
 arch:
   - amd64
-image: "ghcr.io/abriotde/openhems-sample" #set if use image container repository
+image: "ghcr.io/abriotde/openhems-addon" #set if use image container repository
 ports_description:
   8000/tcp: Web interface and API
 webui: http://[HOST]:[PORT:8000]

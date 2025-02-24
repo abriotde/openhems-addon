@@ -1,6 +1,6 @@
 
 build_from:
-  amd64: ghcr.io/abriotde/openhems-sample:main
+  amd64: ghcr.io/abriotde/openhems-addon:main
 codenotary:
   base_image: contact@openhomesystem.com
   signer: contact@openhomesystem.com
