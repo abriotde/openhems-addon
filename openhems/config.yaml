@@ -1,8 +1,7 @@
 name: OpenHEMS
 description: "Home Energy Management System for Home-Assistant automation and optimization"
 url: https://github.com/abriotde/openhems-addon
-version: "0.1.14" #set OpenHEMS version
-codenotary: contact@openhomesystem.com
+version: "main" #set OpenHEMS version
 homeassistant: "2024.5.0"
 slug: openhems
 arch:
@@ -10,7 +9,7 @@ arch:
   - amd64
   - armhf
   - armv7
-image: "ghcr.io/abriotde/openhems-sample:main" #set if use image container repository
+image: "ghcr.io/abriotde/openhems-sample" #set if use image container repository
 ports_description:
   8000/tcp: Web interface and API
 webui: http://[HOST]:[PORT:8000]
@@ -23,11 +22,15 @@ ports:
 ports_description:
   8000/tcp: OpenHEMS
 map:
-  - addon_config:rw
-  - homeassistant_config:rw
-  - media:rw
-  - share:rw
-  - ssl
+  - type: config
+    name: OpenHEMS
+    multiple: false
+    required: true
+    description: OpenHEMS configuration
+  - addon_config: rw
+  - homeassistant_config: rw
+  - media: rw
+  - share: rw
 panel_icon: mdi:home-lightning-bolt-outline
 panel_title: OpenHEMS
 options:
@@ -40,4 +43,3 @@ schema:
   Latitude: "float?" #optional
   Longitude: "float?" #optional
   Altitude: "float?" #optional
-  server_ip: "list(0.0.0.0|127.0.0.1)?" #optional
