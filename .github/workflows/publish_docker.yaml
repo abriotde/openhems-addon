@@ -57,8 +57,8 @@ jobs:
           context: ./openhems/
           push: true
           tags: |
-            latest
-            ${{ env.IMAGE_VERSION }}
+            ghcr.io/abriotde/openhems-addon:toto
+            # ${{ env.IMAGE_VERSION }}
           platforms: linux/${{ matrix.platform.target_arch }}
           build-args: |
             TARGETARCH=${{ matrix.platform.target_arch }}
@@ -120,4 +120,4 @@ jobs:
             $(printf '${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}@sha256:%s ' *)
       - name: Inspect image
         run: |
-          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}:${{ env.IMAGE_VERSION }}
+          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}:toto
