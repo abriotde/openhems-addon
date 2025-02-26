@@ -125,5 +125,3 @@ _Warning: This method will override the Docker image tag, and therefore will req
 #### **openhems-sample**
 For those who want to develop the openhems-sample package itself. Have a look at the [Develop page](https://openhems-sample.readthedocs.io/en/latest/develop.html). _(openhems-sample docs)_ 
 
-#### **openhems-sample-Add-on**
-For those who want to test the openhems-sample addon _(openhems-sample inside of a virtual Home Assistant Environment)_. Have a look at [Test Markdown](./openhems-sample/Test.md).
