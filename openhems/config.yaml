@@ -27,14 +27,14 @@ map:
     read_only: False
 panel_icon: mdi:home-lightning-bolt-outline
 panel_title: OpenHEMS
-options:
-  ha_url: "http://supervisor/core/api"  # Auto-populate HA internal URL
-  ha_token: "!secret openhems_token"    # Auto-inject token via Supervisor # SUPERVISOR_TOKEN
-  time_zone: Europe/Paris
-schema:
-  ha_url: str
-  ha_token: password
-  time_zone: "match((\\w+)?(\\/)(\\w+))?" #optional
-  latitude: "float?" #optional
-  longitude: "float?" #optional
-  altitude: "float?" #optional
+# options:
+  # ha_url: "http://supervisor/core/api"  # Auto-populate HA internal URL
+  # ha_token: "!secret openhems_token"    # Auto-inject token via Supervisor # SUPERVISOR_TOKEN
+  # time_zone: Europe/Paris
+# schema:
+  # ha_url: str
+  # ha_token: password
+  # time_zone: "match((\\w+)?(\\/)(\\w+))?" #optional
+  # latitude: "float?" #optional
+  # longitude: "float?" #optional
+  # altitude: "float?" #optional
