@@ -57,8 +57,8 @@ jobs:
           context: ./openhems/
           push: true
           tags: |
-            ghcr.io/abriotde/openhems-addon:latest
-            ghcr.io/abriotde/openhems-addon:${{ env.IMAGE_VERSION }}
+            latest
+            ${{ env.IMAGE_VERSION }}
           platforms: linux/${{ matrix.platform.target_arch }}
           build-args: |
             TARGETARCH=${{ matrix.platform.target_arch }}
