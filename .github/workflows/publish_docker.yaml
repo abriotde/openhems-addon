@@ -58,7 +58,6 @@ jobs:
           push: true
           tags: |
             ghcr.io/abriotde/openhems-addon:toto
-            # ${{ env.IMAGE_VERSION }}
           platforms: linux/${{ matrix.platform.target_arch }}
           build-args: |
             TARGETARCH=${{ matrix.platform.target_arch }}
