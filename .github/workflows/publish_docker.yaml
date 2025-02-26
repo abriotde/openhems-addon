@@ -51,7 +51,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}
           tags: |
-            type=row, value=latest
+            type=raw, value=latest
       - name: Build and push by digest
         id: build
         uses: docker/build-push-action@v5
