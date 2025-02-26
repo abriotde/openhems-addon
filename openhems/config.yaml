@@ -15,14 +15,16 @@ hassio_role: default
 homeassistant_api: true
 uart: true
 ports:
-  8000/tcp: 5050
+  8000/tcp: 8000
 ports_description:
   8000/tcp: OpenHEMS
 map:
-  - addon_config: rw
-  - homeassistant_config: rw
-  - media: rw
-  - share: rw
+  - type: share
+    read_only: False
+  - type: addon_config
+    read_only: False
+    path: /etc/openhems/
+    read_only: False
 panel_icon: mdi:home-lightning-bolt-outline
 panel_title: OpenHEMS
 options:
