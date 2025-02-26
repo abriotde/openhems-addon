@@ -58,13 +58,7 @@ jobs:
         with:
           context: ./openhems/
           push: true
-          tags: ${{ steps.metadata.outputs.tags }}
-          platforms: linux/${{ matrix.platform.target_arch }}
-          build-args: |
-            TARGETARCH=${{ matrix.platform.target_arch }}
-            os_version=${{ matrix.platform.os_version }}
-          labels: ${{ steps.meta.outputs.labels }}
-          outputs: type=image,name=${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }},push-by-digest=true,name-canonical=true,push=true
+          tags: ghcr.io/abriotde/openhems-addon:latest
       # Export the build images as artifact for the next job of merging
       - name: Export digest
         run: |
