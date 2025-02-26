@@ -32,6 +32,7 @@ jobs:
       - name: lowercase repo
         run: |
           echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+          echo "IMAGE_VERSION=$(grep openhems openhems/requirements.txt|awk -F= '{print $2}')" >>${GITHUB_ENV}
       - name: Checkout the repository
         uses: actions/checkout@v4
       - name: Set up QEMU
@@ -54,6 +55,10 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./openhems/
+          push: true
+          tags: |
+            ghcr.io/abriotde/openhems-addon:latest
+            ghcr.io/abriotde/openhems-addon:${{ env.IMAGE_VERSION }}
           platforms: linux/${{ matrix.platform.target_arch }}
           build-args: |
             TARGETARCH=${{ matrix.platform.target_arch }}
@@ -88,6 +93,7 @@ jobs:
       - name: lowercase repo  
         run: |
           echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+          echo "IMAGE_VERSION=$(grep openhems openhems/requirements.txt|awk -F= '{print $2}')" >>${GITHUB_ENV}
       - name: Download digests
         uses: actions/download-artifact@v4
         with:
@@ -114,4 +120,4 @@ jobs:
             $(printf '${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}@sha256:%s ' *)
       - name: Inspect image
         run: |
-          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}:${{ steps.meta.outputs.version }}
+          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}:${{ env.IMAGE_VERSION }}
