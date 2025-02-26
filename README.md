@@ -8,22 +8,15 @@
 [![License][license-shield]](LICENSE)
 
 
-![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
-![Supports armhf Architecture][armhf-shield]
-![Supports armv7 Architecture][armv7-shield]
-![Supports i386 Architecture][i386-shield]
 
 [![Github Actions][github-actions-shield]][github-actions]
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
-[![Discord][discord-shield]][discord]
 [![Community Forum][forum-shield]][forum]
 
 [![Sponsor OpenHomeSystem via GitHub Sponsors][github-sponsors-shield]][github-sponsors]
-
-[![Support OpenHomeSystem][patreon-shield]][patreon]
 
 ![HADashboard screenshot](images/screenshot.png)
 

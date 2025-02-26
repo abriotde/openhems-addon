@@ -1,3 +1,3 @@
-name: OpenHEMS-sample Add-on Home Energy Management System for Home-Assistant automation
-url: https://github.com/
+name: Home Energy Management System for Home-Assistant automation based on OpenHEMS (using EMHASS)
+url: https://github.com/abriotde/openhems-addon
 maintainer: Albéric de la Crochais <alberic.delacrochais@protonmail.com>
