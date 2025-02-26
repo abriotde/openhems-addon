@@ -50,15 +50,15 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}
+          tags: |
+            type=row, value=latest
       - name: Build and push by digest
         id: build
         uses: docker/build-push-action@v5
         with:
           context: ./openhems/
           push: true
-          tags: |
-            ghcr.io/abriotde/openhems-addon:latest
-            ghcr.io/abriotde/openhems-addon:${{ github.sha }}
+          tags: ${{ steps.metadata.outputs.tags }}
           platforms: linux/${{ matrix.platform.target_arch }}
           build-args: |
             TARGETARCH=${{ matrix.platform.target_arch }}
