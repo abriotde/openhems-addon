@@ -15,16 +15,18 @@ else if [ "$ARG" == "buildx" ]; then
     --push .
   exit
 else if [ "$ARG" == "run" ]; then
+  # https://developers.home-assistant.io/docs/add-ons/publishing/
   docker run \
     --rm \
     --privileged \
     -v ~/.docker:/root/.docker \
     ghcr.io/home-assistant/amd64-builder \
+    -t /home/alberic/Documents/OpenHomeSystem/openhems-addon/openhems:/data \
     --all \
-    -t openhems \
-    -r https://github.com/abriotde/openhems-addon \
-    -b main
-  #  -v /home/alberic/Documents/OpenHomeSystem/openhems-addon/openhems:/data \
+    -t /data
+    # -t openhems \
+    # -r https://github.com/abriotde/openhems-addon \
+    # -b main
 else
   echo "Missing or wrong argument ($ARG) expecting 'build', 'buildx', or 'run'"
 fi; fi; fi

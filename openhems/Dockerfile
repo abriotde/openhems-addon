@@ -5,11 +5,10 @@ FROM ${BUILD_FROM}
 RUN apk update && apk upgrade
 
 
-RUN apk add --no-cache \
-    --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
+RUN apk add --no-cache --virtual .build-dependencies \
     musl=1.2.4-r3 \
     musl-dev=1.2.4-r3
-
+# --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
 # Install system dependencies
 RUN apk add --no-cache \
     python3 python3-dev \
@@ -36,9 +35,12 @@ RUN pip3 install numpy
 COPY requirements.txt /
 RUN pip3 install --no-cache-dir --prefer-binary -r /requirements.txt
 
+RUN mkdir -p /log /app/config
+
 COPY rootfs /
 
 WORKDIR /
+EXPOSE 8000
 
 HEALTHCHECK --start-period=10m \
     CMD curl --fail http://127.0.0.1:8000 || exit 1

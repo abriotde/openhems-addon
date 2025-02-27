@@ -1,12 +1,12 @@
 name: OpenHEMS
 description: "Home Energy Management System for Home-Assistant automation and optimization"
-url: https://github.com/abriotde/openhems-addon
-version: "0.1.14" #set OpenHEMS version
+url: https://github.com/abriotde/openhems
+version: "pr-16" #set OpenHEMS version
 homeassistant: "2024.5.0"
 slug: openhems
 arch:
   - amd64
-image: "ghcr.io/abriotde/openhems-addon" #set if use image container repository
+image: "ghcr.io/abriotde/openhems-sample" #set if use image container repository
 ports_description:
   8000/tcp: Web interface and API
 webui: http://[HOST]:[PORT:8000]
@@ -17,14 +17,17 @@ uart: true
 ports:
   8000/tcp: 8000
 ports_description:
-  8000/tcp: OpenHEMS
+  8000/tcp: "Web interface & API"
 map:
   - type: share
     read_only: False
   - type: addon_config
     read_only: False
-    path: /etc/openhems/
+    path: /app/config
     read_only: False
+  - type: data
+    read_only: False
+    path: /log
 panel_icon: mdi:home-lightning-bolt-outline
 panel_title: OpenHEMS
 # options:
