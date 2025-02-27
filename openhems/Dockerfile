@@ -4,11 +4,11 @@ FROM ${BUILD_FROM}
 # Update repositories and packages
 RUN apk update && apk upgrade
 
-
-RUN apk add --no-cache --virtual .build-dependencies \
+ # --virtual .build-dependencies
+RUN apk add --no-cache \
+    --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
     musl=1.2.4-r3 \
     musl-dev=1.2.4-r3
-# --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
 # Install system dependencies
 RUN apk add --no-cache \
     python3 python3-dev \
@@ -45,4 +45,4 @@ EXPOSE 8000
 HEALTHCHECK --start-period=10m \
     CMD curl --fail http://127.0.0.1:8000 || exit 1
 
-CMD ["/run.sh"]
+ENTRYPOINT ["/run.sh"]
