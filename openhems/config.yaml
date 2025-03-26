@@ -5,7 +5,11 @@ version: "v0.2.1" #set OpenHEMS version
 homeassistant: "2024.5.0"
 slug: openhems
 arch:
+  - aarch64
   - amd64
+  - armhf
+  - armv7
+  - arm64
 image: "ghcr.io/abriotde/openhems-sample" #set if use image container repository
 ports_description:
   8000/tcp: Web interface and API
