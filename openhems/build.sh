@@ -18,7 +18,6 @@ else if [ "$ARG" == "buildx" ]; then
     --platform linux/amd64 \
     -t ghcr.io/abriotde/openhems-addon:$VERSION \
     --push .
-  exit
 else if [ "$ARG" == "run" ]; then
   # https://developers.home-assistant.io/docs/add-ons/publishing/
   docker run \
