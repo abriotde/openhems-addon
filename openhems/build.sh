@@ -4,7 +4,7 @@ ARG=$1
 VERSION=0.2.0
 
 if [ "$ARG" == "build" ]; then
-  docker build -t openhems-addon:$VERSION .
+  docker build --build-arg TARGETARCH=amd64 -t openhems-addon:$VERSION .
 else if [ "$ARG" == "push" ]; then
   docker login ghcr.io
   docker tag ghcr.io/abriotde/openhems-addon:latest ghcr.io/abriotde/openhems-addon:0.2.0
