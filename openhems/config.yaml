@@ -1,7 +1,7 @@
 name: OpenHEMS
 description: "Home Energy Management System for Home-Assistant automation and optimization"
 url: https://github.com/abriotde/openhems
-version: "v0.2.1" #set OpenHEMS version
+version: "0.2.0" #set OpenHEMS version
 homeassistant: "2024.5.0"
 slug: openhems
 arch:
@@ -10,7 +10,7 @@ arch:
   - armhf
   - armv7
   - arm64
-image: "ghcr.io/abriotde/openhems-sample" #set if use image container repository
+image: "ghcr.io/abriotde/openhems-addon" #set if use image container repository
 ports_description:
   8000/tcp: Web interface and API
 webui: http://[HOST]:[PORT:8000]
