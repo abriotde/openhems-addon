@@ -109,6 +109,9 @@ LABEL \
 
 # RUN pip3 install --no-cache-dir --break-system-packages --no-deps --force-reinstall  .
 
+WORKDIR /
+EXPOSE 8000
+
 HEALTHCHECK --start-period=10m \
     CMD curl --fail http://127.0.0.1:8000 || exit 1
 
