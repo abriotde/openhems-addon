@@ -60,7 +60,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/abriotde/openhems-addon:latest
-#            ghcr.io/abriotde/openhems-addon:${{ env.IMAGE_VERSION }}
+            ghcr.io/abriotde/openhems-addon:${{ env.IMAGE_VERSION }}
       # Export the build images as artifact for the next job of merging
       - name: Export digest
         run: |
@@ -116,4 +116,4 @@ jobs:
             $(printf '${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}@sha256:%s ' *)
       - name: Inspect image
         run: |
-          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}:${{ env.IMAGE_VERSION}}
+          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}:${{ env.IMAGE_VERSION }}
