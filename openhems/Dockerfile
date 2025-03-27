@@ -58,7 +58,7 @@ RUN ln -s /usr/include/hdf5/serial /usr/include/hdf5/include && export HDF5_DIR=
 RUN [[ "${TARGETARCH}" == "armhf" || "${TARGETARCH}" == "armv7" ]] && apt-get update && apt-get install -y --no-install-recommends llvm-dev && LLVM_CONFIG=/usr/bin/llvm-config pip3 install --no-cache-dir --break-system-packages 'llvmlite>=0.43' ||  echo "skipping llvm-dev install"
 
 # install packages from pip, use piwheels if arm 32bit
-RUN [[ "${TARGETARCH}" == "armhf" || "${TARGETARCH}" == "armv7" ]] && pip3 install --index-url=https://www.piwheels.org/simple --no-cache-dir --break-system-packages -r requirements.txt ||  pip3 install --no-cache-dir --break-system-packages -r requirements.txt
+RUN [[ "${TARGETARCH}" == "armhf" || "${TARGETARCH}" == "armv7" ]] && pip3 install --index-url=https://www.piwheels.org/simple --no-cache-dir --break-system-packages -r /app/requirements.txt ||  pip3 install --no-cache-dir --break-system-packages -r /app/requirements.txt
 
 # try, symlink apt cbc, to pulp cbc, in python directory (for 32bit)
 RUN [[ "${TARGETARCH}" == "armhf" || "${TARGETARCH}" == "armv7"  ]] &&  ln -sf /usr/bin/cbc /usr/local/lib/python3.11/dist-packages/pulp/solverdir/cbc/linux/32/cbc || echo "cbc symlink didnt work/not required"
@@ -83,8 +83,8 @@ RUN apt-get purge -y --auto-remove \
 # make sure data directory exists
 RUN mkdir -p /app/data/
 
-# make sure emhass share directory exists
-RUN mkdir -p /share/emhass/
+# make sure share directory exists
+RUN mkdir -p /share/openhems/
 
 # pre generated optimization results 
 COPY README.md /app/
@@ -101,11 +101,11 @@ ENV PYTHONUNBUFFERED 1
 LABEL \
     io.hass.name="openhems" \
     io.hass.description="OpenHEMS: Home Energy Management System for Home Assistant" \
-    io.hass.version=${BUILD_VERSION} \
     io.hass.type="addon" \
     io.hass.arch="aarch64|amd64|armhf|armv7" \
     org.opencontainers.image.source="https://github.com/abriotde/openhems-sample" \
     org.opencontainers.image.description="OpenHEMS python package and requirements, in Home Assistant Debian container."
+    # io.hass.version=${BUILD_VERSION}
 
 # RUN pip3 install --no-cache-dir --break-system-packages --no-deps --force-reinstall  .
 
@@ -115,7 +115,7 @@ EXPOSE 8000
 HEALTHCHECK --start-period=10m \
     CMD curl --fail http://127.0.0.1:8000 || exit 1
 
-ENTRYPOINT [ "/run.sh ]
+ENTRYPOINT [ "/app/run.sh" ]
 
 # for running Unittest
 #COPY tests/ /app/tests

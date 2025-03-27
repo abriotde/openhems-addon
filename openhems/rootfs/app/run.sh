@@ -10,4 +10,4 @@ export HA_URL
 export HA_TOKEN
 
 # Start OpenHEMS
-python3 /run.py
+python3 /app/run.py
