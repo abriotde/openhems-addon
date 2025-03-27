@@ -15,7 +15,7 @@
   <a style="text-decoration:none" href="https://github.com/abriotde/openhems-addon">
      <img src="https://raw.githubusercontent.com/abriotde/openhems/master/docs/images/openhems_Add_on_button.svg" alt="openhems addon">
   </a>
-  <a style="text-decoration:none" href="https://github.com/abriotde/openhems">
+  <a style="text-decoration:none" href="https://github.com/abriotde/openhems-sample">
      <img src="https://raw.githubusercontent.com/abriotde/openhems/master/docs/images/openhems_button.svg" alt="openhems">
   </a>
 </div>
@@ -29,7 +29,7 @@
 <div style="display: flex;">
 This addon uses the openhems core module from the following GitHub repository:
 &nbsp; &nbsp;
-<a style="text-decoration:none" href="https://github.com/abriotde/openhems">
+<a style="text-decoration:none" href="https://github.com/abriotde/openhems-sample">
     <img src="https://raw.githubusercontent.com/abriotde/openhems/master/docs/images/openhems_button.svg" alt="openhems">
 </a>
 </div>
