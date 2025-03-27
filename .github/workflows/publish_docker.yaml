@@ -89,7 +89,7 @@ jobs:
       - name: lowercase repo  
         run: |
           echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-          echo "IMAGE_VERSION=$(grep openhems openhems/requirements.txt|awk -F= '{print $2}')" >>${GITHUB_ENV}
+          echo "IMAGE_VERSION=$(grep 'version' openhems/config.yaml|awk '{print $2}'|sed 's/\"//g')" >> ${GITHUB_ENV}
       - name: Download digests
         uses: actions/download-artifact@v4
         with:
@@ -116,4 +116,4 @@ jobs:
             $(printf '${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}@sha256:%s ' *)
       - name: Inspect image
         run: |
-          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}:latest
+          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}:${{ env.IMAGE_VERSION}}
