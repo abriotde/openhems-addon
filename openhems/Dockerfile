@@ -115,7 +115,7 @@ EXPOSE 8000
 HEALTHCHECK --start-period=10m \
     CMD curl --fail http://127.0.0.1:8000 || exit 1
 
-ENTRYPOINT [ "/app/run.sh" ]
+CMD [ "/app/run.sh" ]
 
 # for running Unittest
 #COPY tests/ /app/tests
