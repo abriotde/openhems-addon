@@ -58,7 +58,9 @@ jobs:
         with:
           context: ./openhems/
           push: true
-          tags: abriotde/openhems-addon:latest
+          tags: |
+            ghcr.io/abriotde/openhems-addon:latest
+            ghcr.io/abriotde/openhems-addon:${{ env.IMAGE_VERSION }}
       # Export the build images as artifact for the next job of merging
       - name: Export digest
         run: |

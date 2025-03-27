@@ -9,7 +9,6 @@ arch:
   - amd64
   - armhf
   - armv7
-  - arm64
 image: "ghcr.io/abriotde/openhems-addon" #set if use image container repository
 ports_description:
   8000/tcp: Web interface and API
