@@ -32,7 +32,7 @@ jobs:
       - name: lowercase repo
         run: |
           echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-          echo "IMAGE_VERSION=$(grep openhems openhems/requirements.txt|awk -F= '{print $2}')" >>${GITHUB_ENV}
+          echo "IMAGE_VERSION=$(grep 'version' openhems/config.yaml|awk '{print $2}'|sed 's/\"//g')" >> $GITHUB_ENV
       - name: Checkout the repository
         uses: actions/checkout@v4
       - name: Set up QEMU
