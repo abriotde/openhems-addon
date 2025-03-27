@@ -32,7 +32,7 @@ jobs:
       - name: lowercase repo
         run: |
           echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-          echo "IMAGE_VERSION=$(grep 'version' openhems/config.yaml|awk '{print $2}'|sed 's/\"//g')" >> $GITHUB_ENV
+          echo "IMAGE_VERSION=$(grep 'version' openhems/config.yaml|awk '{print $2}'|sed 's/\"//g')" >> ${GITHUB_ENV}
       - name: Checkout the repository
         uses: actions/checkout@v4
       - name: Set up QEMU
@@ -60,7 +60,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/abriotde/openhems-addon:latest
-            ghcr.io/abriotde/openhems-addon:${{ env.IMAGE_VERSION }}
+#            ghcr.io/abriotde/openhems-addon:${{ env.IMAGE_VERSION }}
       # Export the build images as artifact for the next job of merging
       - name: Export digest
         run: |
