@@ -84,7 +84,7 @@ RUN apt-get purge -y --auto-remove \
 RUN mkdir -p /app/data/
 
 # make sure share directory exists
-RUN mkdir -p /share/openhems/
+RUN mkdir -p /share/openhems/ /var/log/openhems/
 
 # pre generated optimization results 
 COPY README.md /app/
