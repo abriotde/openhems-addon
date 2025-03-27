@@ -116,4 +116,4 @@ jobs:
             $(printf '${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}@sha256:%s ' *)
       - name: Inspect image
         run: |
-          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}:toto
+          docker buildx imagetools inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}:latest
