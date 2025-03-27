@@ -29,13 +29,12 @@ jobs:
         ]
     steps:
     # Pull git repo and build each architecture image separately (with QEMU and Buildx)
+      - name: Checkout the repository
+        uses: actions/checkout@v4
       - name: lowercase repo
         run: |
           echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-          ls ${{ github.workspace }}
           echo "IMAGE_VERSION=$(grep 'version' ${{ github.workspace }}/openhems/config.yaml|awk '{print $2}'|sed 's/\\"//g')" >> ${GITHUB_ENV}
-      - name: Checkout the repository
-        uses: actions/checkout@v4
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
