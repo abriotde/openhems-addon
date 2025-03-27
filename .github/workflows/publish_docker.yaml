@@ -86,6 +86,8 @@ jobs:
     needs:
       - build
     steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
       - name: lowercase repo  
         run: |
           echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
