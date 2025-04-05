@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.4 - 2024-04-06
+### Fix
+- Configuration UI : /params.
+- stability and start even with major configuration error
+
+### Improvement
+- ADD multi hours-ranges for contract
+- ADD priority notion for devices.
+- ADD SolarNoSell & SimulatedAnnealing strategies but not stable for the moment.
+
+
 ## 0.1.9 - 2024-02-19
 ### Improvement
 - Publish openhems as PIP package (Same version). The goal is put it in Home-Assistant's addon.
