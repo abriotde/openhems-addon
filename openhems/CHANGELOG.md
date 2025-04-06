@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.5 - 2024-04-06
+To fix Home-Assistant addon, must upgrade version for so few.
+
+### Fix
+- FIX Start even if the classname is missing or miss configured.
+
 ## 0.2.4 - 2024-04-06
 ### Fix
 - Configuration UI : /params.
