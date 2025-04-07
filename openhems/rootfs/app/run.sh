@@ -9,5 +9,7 @@ HA_TOKEN=$(bashio::config 'ha_token')
 export HA_URL
 export HA_TOKEN
 
+mkdir -p /etc/openhems
+
 # Start OpenHEMS
 python3 /app/run.py
