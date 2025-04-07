@@ -24,7 +24,7 @@ ports_description:
 map:
   - type: share
     read_only: False
-  - type: homeassistant_config
+  - type: addon_config
     read_only: False
     path: /etc/openhems
 panel_icon: mdi:home-lightning-bolt-outline
