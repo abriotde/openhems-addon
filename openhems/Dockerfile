@@ -105,7 +105,7 @@ LABEL \
     io.hass.arch="aarch64|amd64|armhf|armv7" \
     org.opencontainers.image.source="https://github.com/abriotde/openhems-sample" \
     org.opencontainers.image.description="OpenHEMS python package and requirements, in Home Assistant Debian container."
-    # io.hass.version=${BUILD_VERSION}
+    io.hass.version=${BUILD_VERSION}
 
 # RUN pip3 install --no-cache-dir --break-system-packages --no-deps --force-reinstall  .
 

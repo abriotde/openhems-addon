@@ -24,13 +24,9 @@ ports_description:
 map:
   - type: share
     read_only: False
-  - type: addon_config
+  - type: homeassistant_config
     read_only: False
-    path: /app/config
-    read_only: False
-  - type: data
-    read_only: False
-    path: /log
+    path: /etc/openhems
 panel_icon: mdi:home-lightning-bolt-outline
 panel_title: OpenHEMS
 # options:
