@@ -1,7 +1,7 @@
 name: OpenHEMS
 description: "It's an sample Home Energy Management System. This allows you to optimize your electricity consumption."
 url: https://github.com/abriotde/openhems-sample
-version: "0.2.5"
+version: "0.2.6"
 # homeassistant: "2024.4.0"
 slug: openhems
 arch:
