@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.9 - 2024-04-18
+## FIX
+- FIX strategy/annealing : Use genetic algorythm for more reliable results.
+- FIX node/solarpanel :  add tests on it and complete class attributes.
+
+### Improvement
+- MOD Improve Widget UX.
+- ADD web page to get basic informations : The most important is 'version'. But ko on addon... To fix.
+- ADD automatic switch : switch on when you can until X occured.
+- ADD web tooltips on dynamic popup (for nodes/strategies) and update translations
+- MOD strategy/solarnosell : Add some more complex parameters for finer configuration.
+- MOD doc : ADD autogeneration of docstring + Update configure/usage
+
+### Improvement
+
 ## 0.2.7 - 2024-04-07
 To fix Home-Assistant addon, create /etc/openhems/openhems.yaml (config file) if not exists
 

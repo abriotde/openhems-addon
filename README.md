@@ -2,25 +2,27 @@
 
 # OpenHEMS Add-on
 
+This is an Home-Assistant addon to integrate <a href="https://github.com/abriotde/openhems-sample">OpenHEMS</a>. We report the same version from OpenHEMS, so some time we can skip some.
 
-[![GitHub Release][releases-shield]][releases]
-![Project Stage][project-stage-shield]
-[![License][license-shield]](LICENSE)
-
-
-![Supports amd64 Architecture][amd64-shield]
-
-[![Github Actions][github-actions-shield]][github-actions]
-![Project Maintenance][maintenance-shield]
-[![GitHub Activity][commits-shield]][commits]
-
-[![Community Forum][forum-shield]][forum]
-
-[![Sponsor OpenHomeSystem via GitHub Sponsors][github-sponsors-shield]][github-sponsors]
-
-![HADashboard screenshot](https://raw.githubusercontent.com/abriotde/openhems-addon/refs/heads/main/images/screenshot.png)
-
-Python Apps and HADashboard for Home Assistant
+<div align="center">
+  <p align="center">
+    <a style="text-decoration:none" href="https://github.com/abriotde/openhems-addon/blob/main/LICENSE">
+      <img alt="Licence" src="https://img.shields.io/github/license/abriotde/openhems-addon">
+    </a>
+    <a style="text-decoration:none" href="https://openhems.readthedocs.io/en/latest/">
+      <img alt="Read the Docs" src="https://img.shields.io/readthedocs/openhems">
+    </a>
+    <a style="text-decoration:none" href="https://github.com/abriotde/openhems-addon/releases">
+      <img alt="GitHub release" src="https://img.shields.io/github/v/release/abriotde/openhems-addon">
+    </a>
+    <a style="text-decoration:none" href="https://github.com/abriotde/openhems-addon/actions">
+      <img alt="Workflow tests" src="https://img.shields.io/github/actions/workflow/status/abriotde/openhems-addon/publish_docker.yaml?branch=main">
+    </a>
+    <a style="text-decoration:none" href="https://github.com/abriotde/openhems-addon">
+       <img src="https://img.shields.io/github/v/release/abriotde/openhems-addon" alt="Home-Assistant add-on">
+    </a>
+  </p>
+</div>
 
 ### A Home Assistant Add-on for the OpenHEMS module: Home Energy Management System for Home-Assistant
 

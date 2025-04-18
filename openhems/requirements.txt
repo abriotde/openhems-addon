@@ -1,1 +1,1 @@
-openhems>=0.2.7
+openhems==0.2.9
