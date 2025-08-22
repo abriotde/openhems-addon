@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.13 - 2024-08-22
+### Improvement
+- ADD Notify loop errors on dashboard.
+
+### FIX
+- Catch all errors on server loop to avoid crash the thread.
+- when started manually a switch, there was no call to decrementTime
+
 ## 0.2.10 - 2024-04-26
 ### Improvement
 * ADD Switch witch are not switchable by home automation : It allow reduce margin because we can count heavy consumer that are not switchable to avoid black-out (on off-peak time-slots).
