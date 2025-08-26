@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.2.13 - 2024-08-22
+## 0.2.15 - 2024-08-26
+### FIX
+- For HomeAssistant AddOn
+
+## 0.2.13 - 2024-08-26
 ### Improvement
 - ADD Notify loop errors on dashboard.
 
