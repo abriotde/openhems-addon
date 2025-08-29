@@ -7,7 +7,7 @@
 # armhf,amd64,armv7,aarch64
 ARG TARGETARCH
 # armhf=raspbian, amd64,armv7,aarch64=debian
-ARG os_version=debian
+ARG os_version
 
 FROM ghcr.io/home-assistant/$TARGETARCH-base-$os_version:bookworm AS base
 

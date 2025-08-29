@@ -25,8 +25,7 @@ jobs:
           {target_arch: amd64, os_version: debian, docker_platform: linux/amd64},
           {target_arch: armv7, os_version: debian, docker_platform: linux/arm/v7},
           {target_arch: armhf, os_version: raspbian, docker_platform: linux/arm/v6},
-          {target_arch: aarch64, os_version: debian, docker_platform: linux/arm64},
-          {target_arch: arm64, os_version: debian, docker_platform: linux/arm64}
+          {target_arch: aarch64, os_version: debian, docker_platform: linux/arm64}
         ]
     steps:
     # Pull git repo and build each architecture image separately (with QEMU and Buildx)
@@ -59,6 +58,9 @@ jobs:
         with:
           context: ./openhems/
           platforms: ${{ matrix.platform.docker_platform }}
+          build-args: |
+            TARGETARCH=${{ matrix.platform.target_arch }},
+            os_version=${{ matrix.platform.os_version }}
           push: true
           tags: |
             ghcr.io/abriotde/openhems-addon:latest
