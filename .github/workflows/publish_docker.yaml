@@ -22,11 +22,11 @@ jobs:
       fail-fast: false
       matrix:
         platform: [
-          {target_arch: amd64, os_version: debian},
-          {target_arch: armv7, os_version: debian},
-          {target_arch: armhf, os_version: raspbian},
-          {target_arch: aarch64, os_version: debian},
-          {target_arch: arm64, os_version: debian}
+          {target_arch: amd64, os_version: debian, docker_platform: linux/amd64},
+          {target_arch: armv7, os_version: debian, docker_platform: linux/arm/v7},
+          {target_arch: armhf, os_version: raspbian, docker_platform: linux/arm/v6},
+          {target_arch: aarch64, os_version: debian, docker_platform: linux/arm64},
+          {target_arch: arm64, os_version: debian, docker_platform: linux/arm64}
         ]
     steps:
     # Pull git repo and build each architecture image separately (with QEMU and Buildx)
@@ -58,6 +58,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./openhems/
+          platforms: ${{ matrix.platform.docker_platform }}
           push: true
           tags: |
             ghcr.io/abriotde/openhems-addon:latest
