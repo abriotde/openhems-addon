@@ -59,7 +59,7 @@ jobs:
           context: ./openhems/
           platforms: ${{ matrix.platform.docker_platform }}
           build-args: |
-            TARGETARCH=${{ matrix.platform.target_arch }},
+            TARGETARCH=${{ matrix.platform.target_arch }}
             os_version=${{ matrix.platform.os_version }}
           push: true
           tags: |
