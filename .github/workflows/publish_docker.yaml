@@ -23,8 +23,6 @@ jobs:
       matrix:
         platform: [
           {target_arch: amd64, os_version: debian, docker_platform: linux/amd64},
-          {target_arch: armv7, os_version: debian, docker_platform: linux/arm/v7},
-          {target_arch: armhf, os_version: raspbian, docker_platform: linux/arm/v6},
           {target_arch: aarch64, os_version: debian, docker_platform: linux/arm64}
         ]
     steps:
