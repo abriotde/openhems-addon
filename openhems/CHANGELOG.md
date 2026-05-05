@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.16 - 2026-05-05
+### FIX
+- Update to openhems-sample version
+- As no update during a long time, some modules was up dated and generates bug with our code. We fix them.
+### UPDATE
+- Url openshems-addon/issues
+
 ## 0.2.15 - 2024-08-26
 ### FIX
 - For HomeAssistant AddOn

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ARG=$1
-VERSION=0.2.15
+VERSION=0.2.16
 
 if [ "$ARG" == "build" ]; then
   docker build --build-arg TARGETARCH=amd64 -t openhems-addon:$VERSION .

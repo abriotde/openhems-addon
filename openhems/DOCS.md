@@ -9,7 +9,7 @@
    <a style="text-decoration:none" href="https://community.home-assistant.io/t/openhems-an-energy-management-for-home-assistant/338126">
       <img src="https://raw.githubusercontent.com/abriotde/openhems/master/docs/images/Community_button.svg" alt="Community">
   </a>
-  <a style="text-decoration:none" href="https://github.com/abriotde/openhems/issues">
+  <a style="text-decoration:none" href="https://github.com/abriotde/openhems-addon/issues">
       <img src="https://raw.githubusercontent.com/abriotde/openhems/master/docs/images/Issues_button.svg" alt="Issues">
   </a>
   <a style="text-decoration:none" href="https://github.com/abriotde/openhems-addon">
@@ -59,7 +59,7 @@ For any questions on openhems or openhems-addon:
 <div style="display: flex;">
 For any Issues/Feature Requests for the openhems core module, create a new issue here:
 &nbsp; &nbsp;
-<a style="text-decoration:none" href="https://github.com/abriotde/openhems/issues">
+<a style="text-decoration:none" href="https://github.com/abriotde/openhems-addon/issues">
     <img src="https://raw.githubusercontent.com/abriotde/openhems/master/docs/images/Issues_button.svg" alt="Issues">
 </a>
 </div>

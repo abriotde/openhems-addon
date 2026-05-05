@@ -1,14 +1,14 @@
 name: OpenHEMS
 description: "It's an sample Home Energy Management System. This allows you to optimize your electricity consumption."
 url: https://github.com/abriotde/openhems-sample
-version: "0.2.15"
+version: "0.2.16"
 # homeassistant: "2024.4.0"
 slug: openhems
 arch:
   - aarch64
   - amd64
-#  - armhf
-#  - armv7
+#  - armhf # 32 bits?
+#  - armv7 # 32 bits?
 image: "ghcr.io/abriotde/openhems-addon" #set if use image container repository
 ports_description:
   8000/tcp: Web interface and API
