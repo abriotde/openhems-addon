@@ -113,6 +113,14 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LOWER }}
+      - name: Set outputs as env vars
+        run: |
+          echo "DOCKER_METADATA_OUTPUT_JSON=${{ steps.meta.outputs.json }}" >> $GITHUB_ENV
       - name: Create manifest list and push
         working-directory: /tmp/digests
         run: |
