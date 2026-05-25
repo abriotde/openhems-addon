@@ -1,3 +1,4 @@
+# The repository does not seem to be a integration, but an add-on repository. HACS does not manage add-ons.
 name: Validate for HACS
 
 on:

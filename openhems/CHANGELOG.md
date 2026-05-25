@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 - 2026-05-24
+### Improvement
+- Change Web interface from Pyramid to Streamlit
+- Add a Unix socket for communication between Web and Core application.
+- Simplify Dockerfile
+- Upgrade to Python 3.13 (and upgrade packages)
+- Start migration to standard python naming and indenting convention.
+
 ## 0.2.16 - 2026-05-05
 ### FIX
 - Update to openhems-sample version

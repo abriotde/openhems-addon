@@ -9,7 +9,7 @@ ARG TARGETARCH
 # armhf=raspbian, amd64,armv7,aarch64=debian
 ARG os_version
 
-FROM ghcr.io/home-assistant/$TARGETARCH-base-$os_version:bookworm AS base
+FROM ghcr.io/home-assistant/base-debian:trixie AS base
 
 # check if TARGETARCH was passed by build-arg
 ARG TARGETARCH
@@ -18,53 +18,33 @@ ENV TARGETARCH=${TARGETARCH:?}
 WORKDIR /app
 COPY requirements.txt /app/
 
-# apt package install
+# Installation des dépendances système nécessaires (beaucoup sont déjà présentes)
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-    libffi-dev \
-    python3.11 \
-    python3-pip \
-    python3.11-dev \
-    git \
-    gcc \
-    patchelf \
-    cmake \
-    meson \
-    ninja-build \
-    build-essential \
-    libhdf5-dev \
-    libhdf5-serial-dev \
-    pkg-config \
-    gfortran \
-    netcdf-bin \
-    libnetcdf-dev \
-    coinor-cbc \
-    coinor-libcbc-dev \
-    libglpk-dev \
-    glpk-utils \
-    libatlas3-base \
-    libatlas-base-dev \
-    libopenblas-dev \
-    libopenblas0-pthread \
-    libgfortran5 \
-    libsz2 \
-    libaec0 \
-    libhdf5-hl-100 \
-    libhdf5-103-1
+  && apt-get install -y --no-install-recommends \
+  libffi-dev \
+  gcc \
+  patchelf \
+  cmake \
+  meson \
+  ninja-build \
+  build-essential \
+  libhdf5-dev \
+  libhdf5-serial-dev \
+  pkg-config \
+  gfortran \
+  netcdf-bin \
+  libnetcdf-dev \
+  coinor-cbc \
+  coinor-libcbc-dev \
+  libglpk-dev \
+  glpk-utils \
+  libopenblas-dev \
+  python3.13-venv python3-pip
 # specify hdf5
 RUN ln -s /usr/include/hdf5/serial /usr/include/hdf5/include && export HDF5_DIR=/usr/include/hdf5
 
-# note, its a good idea to remove the "llvm-dev" package and "LLVM_CONFIG=/usr/bin/llvm-config pip3 install 'llvmlite>=0.43'" once the llvmlite package has been fixed in piwheels
-RUN [[ "${TARGETARCH}" == "armhf" || "${TARGETARCH}" == "armv7" ]] && apt-get update && apt-get install -y --no-install-recommends llvm-dev && LLVM_CONFIG=/usr/bin/llvm-config pip3 install --break-system-packages 'llvmlite>=0.43' ||  echo "skipping llvm-dev install"
-
 # install packages from pip, use piwheels if arm 32bit
-RUN [[ "${TARGETARCH}" == "armhf" || "${TARGETARCH}" == "armv7" ]] && pip3 install --index-url=https://www.piwheels.org/simple --break-system-packages -r /app/requirements.txt || pip3 install --break-system-packages -r /app/requirements.txt
-
-# try, symlink apt cbc, to pulp cbc, in python directory (for 32bit)
-RUN [[ "${TARGETARCH}" == "armhf" || "${TARGETARCH}" == "armv7"  ]] &&  ln -sf /usr/bin/cbc /usr/local/lib/python3.11/dist-packages/pulp/solverdir/cbc/linux/32/cbc || echo "cbc symlink didnt work/not required"
-
-# if armv7, try install libatomic1 to fix scipy issue
-RUN [[ "${TARGETARCH}" == "armv7" ]] && apt-get update && apt-get install libatomic1 || echo "libatomic1 cant be installed"
+RUN pip install --break-system-packages -r /app/requirements.txt
 
 # remove build only packages
 RUN apt-get purge -y --auto-remove \
