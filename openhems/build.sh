@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ARG=$1
-VERSION=0.2.16
+VERSION=`cat config.yaml | ./shyaml.py get-value version`
 
 if [ "$ARG" == "build" ]; then
   docker build --build-arg TARGETARCH=amd64 -t openhems-addon:$VERSION .
