@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.1 - 2026-06-01
+### Fix
+- It was not running anymore due to missing dependencies/configuration.
+
+
 ## 0.3.0 - 2026-05-24
 ### Improvement
 - Change Web interface from Pyramid to Streamlit
