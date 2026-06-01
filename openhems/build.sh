@@ -35,6 +35,10 @@ else if [ "$ARG" == "run0" ]; then
     # -b main
 else if [ "$ARG" == "run" ]; then
   echo "Running docker ghcr.io/abriotde/openhems-addon:$VERSION"
+  echo "EXEC : docker run -p 8000:8000 \
+          -v $OPENHEMS_PATH/config:/app/config \
+          -v $OPENHEMS_LOGPATH:/log \
+          ghcr.io/abriotde/openhems-addon:$VERSION"
   docker run -p 8000:8000 \
           -v $OPENHEMS_PATH/config:/app/config \
           -v $OPENHEMS_LOGPATH:/log \
