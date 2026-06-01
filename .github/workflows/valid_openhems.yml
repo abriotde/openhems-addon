@@ -11,14 +11,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up environment variable
-        run: |
-         echo "OPENHEMS_VERSION=`cat ./openhems/config.yaml | ./openhems/shyaml.py get-value version`" >> $GITHUB_ENV
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+
+      - name: Set up environment variable
+        run: |
+         echo "OPENHEMS_VERSION=`cat ./openhems/config.yaml | ./openhems/shyaml.py get-value version`" >> $GITHUB_ENV
 
       - name: Install uv
         run: pip install uv
@@ -35,7 +35,7 @@ jobs:
 
       - name: Start server in background
         run: |
-          python test_venv.py > server.log 2>&1 &
+          python ./openhems/test_venv.py > server.log 2>&1 &
           echo $! > server.pid
         env:
           PYTHONUNBUFFERED: 1   # Ensure logs are flushed immediately
