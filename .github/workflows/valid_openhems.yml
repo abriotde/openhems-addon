@@ -13,7 +13,7 @@ jobs:
 
       - name: Set up environment variable
         run: |
-         echo "OPENHEMS_VERSION=`cat config.yaml | ./shyaml.py get-value version`" >> $GITHUB_ENV
+         echo "OPENHEMS_VERSION=`cat config.yaml | ./openhems/shyaml.py get-value version`" >> $GITHUB_ENV
 
       - name: Set up Python
         uses: actions/setup-python@v5
