@@ -34,10 +34,11 @@ else if [ "$ARG" == "run0" ]; then
     # -r https://github.com/abriotde/openhems-addon \
     # -b main
 else if [ "$ARG" == "run" ]; then
+  echo "Running docker ghcr.io/abriotde/openhems-addon:$VERSION"
   docker run -p 8000:8000 \
           -v $OPENHEMS_PATH/config:/app/config \
           -v $OPENHEMS_LOGPATH:/log \
-          openhems-addon:$VERSION
+          ghcr.io/abriotde/openhems-addon:$VERSION
 else
   echo "Missing or wrong argument ($ARG) expecting 'build', 'buildx', or 'run'"
 fi; fi; fi; fi; fi
