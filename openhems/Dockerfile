@@ -43,8 +43,8 @@ RUN apt-get update \
 # specify hdf5
 RUN ln -s /usr/include/hdf5/serial /usr/include/hdf5/include && export HDF5_DIR=/usr/include/hdf5
 
-# install packages from pip, use piwheels if arm 32bit
-RUN pip install --break-system-packages -r /app/requirements.txt
+# RUN apt-get remove -y python3-typing-extensions
+RUN pip install --break-system-packages --ignore-installed -r /app/requirements.txt
 
 # remove build only packages
 RUN apt-get purge -y --auto-remove \
