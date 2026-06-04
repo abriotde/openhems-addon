@@ -1,2 +1,2 @@
 typing-extensions>=4.15.0
-openhems==0.3.1.2
+openhems==0.3.2.1
