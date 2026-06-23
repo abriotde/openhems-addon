@@ -1,10 +1,18 @@
 # Changelog
 
+## 0.3.4 - 2026-06-23
+### Fix
+- core FIX
+
+### Improvement
+- On web/dashboard : duration as time instead of int/seconds.
+- IHM/config : concat all configuration files to edit a complete one and other improvments.
+
 ## 0.3.2 - 2026-06-04
 ### Fix
-- FIX run from other path (Docker, Home-Assistant add-on... )
-- FIX : start allways the Web server.
-- FIX : should work on Home-Assistant
+- run from other path (Docker, Home-Assistant add-on... )
+- start allways the Web server.
+- should work on Home-Assistant
 
 ## 0.3.1 - 2026-06-01
 ### Fix
