@@ -1,0 +1,40 @@
+name: OpenHEMS-test
+description: "It's un unstable OpenHEMS version used for tests."
+url: https://github.com/abriotde/openhems-sample
+version: "0.3.4"
+# homeassistant: "2024.4.0"
+slug: openhems-test
+arch:
+  - aarch64
+  - amd64
+#  - armhf # 32 bits?
+#  - armv7 # 32 bits?
+image: "ghcr.io/abriotde/openhems-addon" #set if use image container repository
+ports_description:
+  8000/tcp: Web interface and API
+webui: http://[HOST]:[PORT:8000]
+init: false
+hassio_role: default
+homeassistant_api: true
+uart: true
+ports:
+  8000/tcp: 8000
+ports_description:
+  8000/tcp: "Web interface & API"
+map:
+  - type: config
+    read_only: False
+    path: /etc/openhems
+panel_icon: mdi:home-lightning-bolt-outline
+panel_title: OpenHEMS
+# options:
+  # ha_url: "http://supervisor/core/api"  # Auto-populate HA internal URL
+  # ha_token: "!secret openhems_token"    # Auto-inject token via Supervisor # SUPERVISOR_TOKEN
+  # time_zone: Europe/Paris
+# schema:
+  # ha_url: str
+  # ha_token: password
+  # time_zone: "match((\\w+)?(\\/)(\\w+))?" #optional
+  # latitude: "float?" #optional
+  # longitude: "float?" #optional
+  # altitude: "float?" #optional
