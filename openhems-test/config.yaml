@@ -1,5 +1,5 @@
 name: OpenHEMS-test
-description: "It's un unstable OpenHEMS version used for tests."
+description: "It's un unstable OpenHEMS used for tests."
 url: https://github.com/abriotde/openhems-sample
 version: "0.3.5"
 # homeassistant: "2024.4.0"
