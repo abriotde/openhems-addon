@@ -92,8 +92,8 @@ jobs:
         uses: actions/checkout@master
       - name: lowercase repo  
         run: |
-          echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-          echo "IMAGE_VERSION=$(grep 'version' openhems/config.yaml|awk '{print $2}'|sed 's/\"//g')" >> ${GITHUB_ENV}
+          echo "IMAGE_NAME_LOWER=${GITHUB_REPOSITORY,,}-test" >>${GITHUB_ENV}
+          echo "IMAGE_VERSION=$(grep 'version' openhems-test/config.yaml|awk '{print $2}'|sed 's/\"//g')" >> ${GITHUB_ENV}
       - name: Download digests
         uses: actions/download-artifact@master
         with:
